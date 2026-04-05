@@ -48,17 +48,16 @@ The simulation targets resonance risk assessment: excessive displacement or acce
 
 1. Open `params.m` and set base parameters.
 2. Open `main.m` and configure the sweep:
+   - Set `new_simulation = true` to generate new simulation data.
    - Set `sweep1_field` to the parameter name to sweep (e.g. `'freq'`), with `sweep1_min`, `sweep1_max`, `sweep1_step`.
    - Set `multi_sweep = false` for a 1D sweep (line plot) or `multi_sweep = true` for a 2D sweep (surface plot), and configure `sweep2_field` accordingly.
-   - Set `y_axis_param` (1D) or `z_axis_param` (2D) to the metric to visualise (see [Outputs](#outputs)).
+   - Set `observation_metric` to the metric to visualise (see [Outputs](#outputs)).
    - Set failure thresholds `x_fail` and `xddot_fail`.
    - Set `fixedParams` to match any overrides from the base parameters.
 3. Uncomment the `results_summary = iterate_params(...)` line (line 39).
 4. Run `main.m`. Progress is printed to the console (`Run N of M`). On completion, one figure per shelf level is produced.
 
-> **Tip:** to reuse the same simulation results when only editing plot aesthetics or parameters, comment out the following lines:
-> * lines **4** and **39** in `main.m`
-> * lines **4** and **31** in `plot_response.m`
+> **Tip:** to reuse the same simulation results when only editing plot aesthetics or parameters, set `new_simulation = false`.
 
 ---
 

@@ -7,12 +7,19 @@ clear; % comment this out if you want to reuse existing sim data (eg. editing th
 p = params();
 
 p_run = p; % copy params into p_run
-L = p_run.L;
 tdelta = 0.001; % set time resolution
 
 % change any p_run params here
-% p_run.forcingFunc = 'sin';
-% p_run.freq = 3.18;
+p_run.forcingFunc = 'sin';
+p_run.freq = 1;
+p_run.phi_L = pi/2;
+p_run.L = 3;
+p_run.J = 3;
+p_run.phi_J = 0;
+p_run.shelfMass = 9;
+p_run.zeta = 0.1;
+p_run.k = 14000;
+L = p_run.L;
 
 % assemble input_params for ode_fun
 [M, C, K] = assemble_matrices(p_run.L, p_run.J, p_run.shelfMass, p_run.printerMass, p_run.zeta, p_run.k);
